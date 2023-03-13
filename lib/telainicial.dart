@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class TelaInicial extends StatefulWidget {
-  const TelaInicial({super.key});
+  const TelaInicial({super.key, required this.controladorUsuario});
+  final TextEditingController controladorUsuario;
 
   @override
-  TelaInicialState createState() => TelaInicialState();
+  State<StatefulWidget> createState() {
+    return TelaInicialState();
+  }
 }
 
 class TelaInicialState extends State<TelaInicial> {
@@ -18,7 +21,7 @@ class TelaInicialState extends State<TelaInicial> {
             textAlign: TextAlign.center,
             text: TextSpan(
                 style: DefaultTextStyle.of(context).style,
-                children: <TextSpan>[
+                children: const <TextSpan>[
                   TextSpan(
                     text: "GitHub\n",
                     style: TextStyle(
@@ -35,17 +38,16 @@ class TelaInicialState extends State<TelaInicial> {
                   ),
                 ]),
           ),
-          Container(
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                labelText: ("Usuário Github"),
-                hintText: ("usuário"),
-                filled: true,
-                fillColor: Colors.white,
+          TextField(
+            controller: widget.controladorUsuario,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
               ),
+              labelText: ("Usuário Github"),
+              hintText: ("Digite o nome do usuário"),
+              filled: true,
+              fillColor: Colors.white,
             ),
           ),
         ],

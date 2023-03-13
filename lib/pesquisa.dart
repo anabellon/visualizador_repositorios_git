@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Pesquisa extends StatefulWidget {
-  const Pesquisa({super.key});
+  final TextEditingController controladorUsuario;
+  const Pesquisa({super.key, required this.controladorUsuario});
   @override
   _PesquisaState createState() => _PesquisaState();
 }
@@ -12,7 +13,9 @@ class _PesquisaState extends State<Pesquisa> {
     return Column(
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            _eventoClick(context);
+          },
           child: const Text(
             "Pesquisar Repositórios",
             style: TextStyle(
@@ -22,5 +25,10 @@ class _PesquisaState extends State<Pesquisa> {
         ),
       ],
     );
+  }
+
+  void _eventoClick(BuildContext context) {
+    //onPressed
+    widget.controladorUsuario;
   }
 }

@@ -7,10 +7,14 @@ class Tela extends StatefulWidget {
   const Tela({super.key});
 
   @override
-  TelaState createState() => TelaState();
+  State<StatefulWidget> createState() {
+    return TelaState();
+  }
 }
 
 class TelaState extends State<Tela> {
+  final TextEditingController _controlador = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +24,12 @@ class TelaState extends State<Tela> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TelaInicial(),
-            Pesquisa(),
+            TelaInicial(
+              controladorUsuario: _controlador,
+            ),
+            Pesquisa(
+              controladorUsuario: _controlador,
+            ),
           ],
         ),
       ),
