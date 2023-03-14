@@ -1,6 +1,10 @@
-# visualizador_repositorios_git
+# Visualizador de Repositórios Git
 
-A new Flutter project.
+Como parte do plano de estudos de Flutter, neste app poderemos listar os repositórios de um usuário GitHub fazendo o consumo de API, conforme imagem abaixo. (Em andamento)
+
+
+![alt text](https://live.staticflickr.com/65535/52746933537_62a94beea8_z.jpg)
+
 
 ## Getting Started
 
