@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class TelaInicial extends StatefulWidget {
-  const TelaInicial({super.key, required this.controladorUsuario});
+class Index extends StatefulWidget {
+  const Index({super.key, required this.controladorUsuario});
   final TextEditingController controladorUsuario;
 
   @override
   State<StatefulWidget> createState() {
-    return TelaInicialState();
+    return IndexState();
   }
 }
 
-class TelaInicialState extends State<TelaInicial> {
+class IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return Padding(

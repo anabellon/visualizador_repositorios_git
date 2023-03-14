@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:visualizador_repositorios_git/pages/result.dart';
+
+const String textSnackBar = "Entre com o usuário";
 
 class Pesquisa extends StatefulWidget {
   final TextEditingController controladorUsuario;
   const Pesquisa({super.key, required this.controladorUsuario});
   @override
-  _PesquisaState createState() => _PesquisaState();
+  PesquisaState createState() => PesquisaState();
 }
 
-class _PesquisaState extends State<Pesquisa> {
+class PesquisaState extends State<Pesquisa> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,6 +32,21 @@ class _PesquisaState extends State<Pesquisa> {
 
   void _eventoClick(BuildContext context) {
     //onPressed
-    widget.controladorUsuario;
+    if (widget.controladorUsuario.text.isNotEmpty) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return Result(userName: widget.controladorUsuario.text);
+          },
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(textSnackBar),
+        ),
+      );
+    }
   }
 }

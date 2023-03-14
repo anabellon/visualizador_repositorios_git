@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-import 'pesquisa.dart';
-import 'telainicial.dart';
+import 'components/pesquisa.dart';
+import 'pages/index.dart';
 
-class Tela extends StatefulWidget {
-  const Tela({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return TelaState();
+    return MyAppState();
   }
 }
 
-class TelaState extends State<Tela> {
+class MyAppState extends State<MyApp> {
   final TextEditingController _controlador = TextEditingController();
 
   @override
@@ -24,7 +24,7 @@ class TelaState extends State<Tela> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TelaInicial(
+            Index(
               controladorUsuario: _controlador,
             ),
             Pesquisa(

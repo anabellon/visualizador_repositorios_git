@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'tela.dart';
+import 'myapp.dart';
 
 void main() {
   runApp(GitRepo());
@@ -17,7 +17,7 @@ class GitRepo extends StatelessWidget {
         primarySwatch: Colors.cyan,
         scaffoldBackgroundColor: Colors.grey.shade200,
       ),
-      home: const Tela(),
+      home: const MyApp(),
     );
   }
 }
