@@ -3,21 +3,21 @@ import 'package:visualizador_repositorios_git/pages/result.dart';
 
 const String textSnackBar = "Entre com o usuário";
 
-class Pesquisa extends StatefulWidget {
+class UserSearch extends StatefulWidget {
   final TextEditingController controladorUsuario;
-  const Pesquisa({super.key, required this.controladorUsuario});
+  const UserSearch({super.key, required this.controladorUsuario});
   @override
-  PesquisaState createState() => PesquisaState();
+  UserSearchState createState() => UserSearchState();
 }
 
-class PesquisaState extends State<Pesquisa> {
+class UserSearchState extends State<UserSearch> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ElevatedButton(
           onPressed: () {
-            _eventoClick(context);
+            _eventClick(context);
           },
           child: const Text(
             "Pesquisar Repositórios",
@@ -30,7 +30,7 @@ class PesquisaState extends State<Pesquisa> {
     );
   }
 
-  void _eventoClick(BuildContext context) {
+  void _eventClick(BuildContext context) {
     //onPressed
     if (widget.controladorUsuario.text.isNotEmpty) {
       Navigator.push(

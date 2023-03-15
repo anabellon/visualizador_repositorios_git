@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'components/pesquisa.dart';
+import 'components/usersearch.dart';
 import 'pages/index.dart';
 
 class MyApp extends StatefulWidget {
@@ -27,7 +27,7 @@ class MyAppState extends State<MyApp> {
             Index(
               controladorUsuario: _controlador,
             ),
-            Pesquisa(
+            UserSearch(
               controladorUsuario: _controlador,
             ),
           ],

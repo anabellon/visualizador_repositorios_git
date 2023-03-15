@@ -10,6 +10,7 @@ class Result extends StatefulWidget {
   }
 }
 
+// !Em construção -> Reformular para se adequar ao List de dados da API
 class _ResultState extends State<Result> {
   @override
   Widget build(BuildContext context) {
