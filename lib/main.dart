@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'myapp.dart';
 
 void main() {
-  runApp(GitRepo());
+  runApp(const GitRepo());
 }
 
 class GitRepo extends StatelessWidget {
