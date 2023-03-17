@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:visualizador_repositorios_git/pages/result.dart';
+
+import '../pages/result.dart';
+import '../services/apiservice.dart';
 
 const String textSnackBar = "Entre com o usuário";
 
@@ -31,6 +33,11 @@ class UserSearchState extends State<UserSearch> {
   }
 
   void _eventClick(BuildContext context) {
+    /* testar a saida
+    ApiService service = ApiService();
+    service.get();
+    */
+
     //onPressed
     if (widget.controladorUsuario.text.isNotEmpty) {
       Navigator.push(
