@@ -7,9 +7,9 @@ class Repositories {
     required this.html_url,
   });
 
-  final String name;
-  final String description;
-  final String html_url;
+  final String? name;
+  final String? description;
+  final String? html_url;
 
   /* 
   exemplo saida json github:

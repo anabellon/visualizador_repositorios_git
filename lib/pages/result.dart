@@ -1,4 +1,8 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:visualizador_repositorios_git/services/apiservice.dart';
 
 class Result extends StatefulWidget {
   final String userName;
@@ -52,7 +56,9 @@ class _ResultState extends State<Result> {
               const Divider(
                 height: 30,
               ),
-              const RepositoriesCard(),
+              RepositoriesCard(
+                userName: widget.userName,
+              ),
             ],
           ),
         ),
@@ -62,55 +68,82 @@ class _ResultState extends State<Result> {
 }
 
 class RepositoriesCard extends StatelessWidget {
-  const RepositoriesCard({super.key});
-
+  RepositoriesCard({super.key, required this.userName});
+  final String userName;
+  ApiService service = ApiService();
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: SingleChildScrollView(
         child: Column(children: [
-          Card(
-            elevation:
-                5, // apesar de ser usado para sombreamento, é necessário atenção por se tratar dos níveis que o card será trazido para frente
-            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(30),
-              ),
-            ),
-            child: ListTile(
-              //leading: FlutterLogo(),
-              //trailing: Icon(Icons.more_horiz),
-              title: const Text(
-                "Título repo\n",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Column(
-                children: [
-                  const Text(
-                    "Descrição repo\n",
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    label: const Text(
-                      "Abrir repo",
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                    icon: const Icon(Icons.link),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          FutureBuilder(
+              future: service.getRepositories(userName),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  var repositories = snapshot.data;
+
+                  return ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: repositories!.length,
+                    itemBuilder: (context, index) {
+                      var repository = repositories[index];
+                      return Card(
+                        elevation:
+                            5, // apesar de ser usado para sombreamento, é necessário atenção por se tratar dos níveis que o card será trazido para frente
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 40),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(30),
+                          ),
+                        ),
+                        child: ListTile(
+                          //leading: FlutterLogo(),
+                          //trailing: Icon(Icons.more_horiz),
+                          title: Text(
+                            repository!.name,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          subtitle: Column(
+                            children: [
+                              Text(
+                                repository.description.toString(),
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              ElevatedButton.icon(
+                                onPressed: () {
+                                  launchUrl(Uri.parse(repository.html_url));
+                                },
+                                label: const Text(
+                                  "Abrir repo",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                icon: const Icon(Icons.link),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const Divider();
+                    },
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              }),
         ]),
       ),
     );

@@ -5,14 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:visualizador_repositorios_git/model/repositoriesmodel.dart';
 
 class ApiService {
-  Future<void> get() async {
+  static const baseUrl = "https://api.github.com/users/";
+
+  Future<List<dynamic>?> getRepositories(String username) async {
+    var url = "$baseUrl$username/repos";
     Response response;
     Dio dio = Dio();
     try {
-      response = await dio.get("https://api.github.com/users/anabellon/repos");
+      response = await dio.get(url);
 
-      debugPrint(
-          "Foi? ${response.data[0]['id']}"); //pegando o id do objeto 0 do vetor
+      var repositories =
+          (response.data).map((item) => Repositories.fromJson(item)).toList();
+
+      //debugPrint(repositories.toString());
+
+      return repositories;
+
+      // debugPrint(
+      //     "Foi? ${response.data[0]['id']}"); //pegando o id do objeto 0 do vetor
     } on DioError catch (err) {
       debugPrint("Deu erro kkkcry ${err.response!.statusCode}");
     }

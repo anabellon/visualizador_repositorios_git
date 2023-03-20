@@ -33,26 +33,26 @@ class UserSearchState extends State<UserSearch> {
   }
 
   void _eventClick(BuildContext context) {
-    // testar a saida
-    ApiService service = ApiService();
-    service.get();
+    // // testar a saida
+    // ApiService service = ApiService();
+    // service.getRepositories(widget.controladorUsuario.text);
 
     //onPressed
-    // if (widget.controladorUsuario.text.isNotEmpty) {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (context) {
-    //         return Result(userName: widget.controladorUsuario.text);
-    //       },
-    //     ),
-    //   );
-    // } else {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     const SnackBar(
-    //       content: Text(textSnackBar),
-    //     ),
-    //   );
-    // }
+    if (widget.controladorUsuario.text.isNotEmpty) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return Result(userName: widget.controladorUsuario.text);
+          },
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(textSnackBar),
+        ),
+      );
+    }
   }
 }

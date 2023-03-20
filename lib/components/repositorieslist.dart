@@ -1,5 +1,3 @@
-// import 'package:flutter/material.dart';
-
 //   !Em construção!
 //   List Build para retornar os repositorios em Cards no 'result.dart'
 
