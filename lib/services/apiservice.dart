@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:visualizador_repositorios_git/model/repositoriesmodel.dart';
@@ -7,6 +5,7 @@ import 'package:visualizador_repositorios_git/model/repositoriesmodel.dart';
 class ApiService {
   static const baseUrl = "https://api.github.com/users/";
 
+  // ignore: body_might_complete_normally_nullable
   Future<List<dynamic>?> getRepositories(String username) async {
     var url = "$baseUrl$username/repos";
     Response response;

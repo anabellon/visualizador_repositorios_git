@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../pages/result.dart';
-import '../services/apiservice.dart';
 
 const String textSnackBar = "Entre com o usuário";
 

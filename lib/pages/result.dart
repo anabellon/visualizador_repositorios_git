@@ -1,12 +1,8 @@
-import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:visualizador_repositorios_git/model/repositoriesmodel.dart';
-import 'package:visualizador_repositorios_git/services/apiservice.dart';
-
-import '../components/repositorieslist.dart';
 
 class Result extends StatefulWidget {
   final String userName;
@@ -20,7 +16,6 @@ class Result extends StatefulWidget {
 
 // !Em construção -> Reformular para se adequar ao List de dados da API
 class _ResultState extends State<Result> {
-  final TextEditingController _controladorAvatar = TextEditingController();
   List<Repositories> repositoriesTest = [];
 
   carregarRepositorios() async {
