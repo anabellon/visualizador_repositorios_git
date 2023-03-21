@@ -5,11 +5,13 @@ class Repositories {
     required this.name,
     required this.description,
     required this.html_url,
+    required this.avatar_url,
   });
 
   final String? name;
   final String? description;
   final String? html_url;
+  final String? avatar_url;
 
   /* 
   exemplo saida json github:
@@ -22,6 +24,7 @@ class Repositories {
         name: json['name'],
         description: json['description'],
         html_url: json['html_url'],
+        avatar_url: json['owner']['avatar_url'],
       );
 
   // verificar o Map e suas passagens, está errado
@@ -29,5 +32,6 @@ class Repositories {
         "name": name,
         "description": description,
         "html_url": html_url,
+        "avatar_url": avatar_url,
       };
 }
