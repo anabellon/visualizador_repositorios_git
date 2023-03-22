@@ -75,7 +75,7 @@ class _ResultState extends State<Result> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           userNotFound,
                           textAlign: TextAlign.center,
                           style: TextStyle(
