@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../pages/result.dart';
 
 const String textSnackBar = "Entre com o usuário";
+const String textSearch = "Pesquisar Repositórios";
 
 class UserSearch extends StatefulWidget {
   final TextEditingController controladorUsuario;
@@ -21,7 +22,7 @@ class UserSearchState extends State<UserSearch> {
             _eventClick(context);
           },
           child: const Text(
-            "Pesquisar Repositórios",
+            textSearch,
             style: TextStyle(
               fontSize: 18,
             ),
@@ -32,6 +33,7 @@ class UserSearchState extends State<UserSearch> {
   }
 
   void _eventClick(BuildContext context) {
+
     // // testar a saida
     // ApiService service = ApiService();
     // service.getRepositories(widget.controladorUsuario.text);

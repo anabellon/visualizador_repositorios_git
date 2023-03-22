@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+const String titleText = "GitHub\n";
+const String subText = "Visualizador de Repositórios\n";
+const String label = "Usuário Github";
+const String hint = "Digite o nome do usuário";
+
 class Index extends StatefulWidget {
   const Index({super.key, required this.controladorUsuario});
   final TextEditingController controladorUsuario;
@@ -25,14 +30,14 @@ class IndexState extends State<Index> {
                   style: DefaultTextStyle.of(context).style,
                   children: const <TextSpan>[
                     TextSpan(
-                      text: "GitHub\n",
+                      text: titleText,
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     TextSpan(
-                      text: "Visualizador de Repositórios\n",
+                      text: subText,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -47,8 +52,8 @@ class IndexState extends State<Index> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                labelText: ("Usuário Github"),
-                hintText: ("Digite o nome do usuário"),
+                labelText: (label),
+                hintText: (hint),
                 filled: true,
                 fillColor: Colors.white,
               ),
