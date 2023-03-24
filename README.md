@@ -1,20 +1,31 @@
-# Visualizador de Repositórios Git
+# Plano de estudos de Flutter
 
-Como parte do plano de estudos de Flutter, neste app poderemos listar os repositórios de um usuário GitHub fazendo o consumo de API, conforme imagem abaixo. (Em andamento)
+## Visualizador de Repositórios GitHub
 
+Neste app podemos listar os repositórios de um usuário GitHub fazendo consumo da API, *sem a utilização da class FutureBuilder*.
 
-![alt text](https://live.staticflickr.com/65535/52746933537_62a94beea8_z.jpg)
+## Screenshots
 
+![alt text](https://live.staticflickr.com/65535/52767683362_60023cb255_b.jpg)
 
-## Getting Started
+## Instruções
 
-This project is a starting point for a Flutter application.
+- [Documentação online Flutter](https://docs.flutter.dev/) oferece tutoriais, exemplos, guias em desenvolvimento mobile, e referência completa da API.
 
-A few resources to get you started if this is your first Flutter project:
+- Comandos a serem executados no terminal:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```py
+git clone https://github.com/anabellon/visualizador_repositorios_git.git  # Clona este repositório
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```py
+cd ./visualizador_repositorios_git # Acessa o repositório
+```
+
+```py
+flutter emulators --launch <id_do_emulador> # Seleciona o emulador
+```
+
+```py
+flutter run # Executa o projeto
+```
